@@ -11,6 +11,13 @@ body {
   align-items: center;
 }
 
+.error-message {
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+}
+
 
 
 

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
+import './index.css'
 
 type Inputs = {
   cep: string
@@ -29,6 +30,17 @@ function App() {
   const handleSubmitForm = async (data: { cep: string }) => {
     const response = await getCep(data.cep)
     console.log("Dados recebidos:", response)
+
+    if (response.erro) {
+      alert("CEP não encontrado")
+      return
+    }
+
+    document.getElementById("rua")!.setAttribute("value", response.logradouro)
+    document.getElementById("bairro")!.setAttribute("value", response.bairro)
+    document.getElementById("cidade")!.setAttribute("value", response.localidade)
+    document.getElementById("estado")!.setAttribute("value", response.uf)
+    document.getElementById("ibge")!.setAttribute("value", response.ibge)
   }
 
 
@@ -45,10 +57,14 @@ function App() {
           type="text"
           id="cep"
           placeholder="Digite o cep"
-          {...register("cep", { required: "O CEP é obrigatório" })}
+          {...register("cep", {
+            required: "O CEP é obrigatório", minLength: { value: 8, message: "O CEP deve ter 8 dígitos!" }
+          })}
         />
 
-        {errors.cep && <p>{errors.cep.message}</p>}
+        {errors.cep && <p className="error-message">{errors.cep.message}</p>}
+
+        {errors.cep && errors.cep.type === "minLength" && <p className="error-message"></p>}
 
         <Button type="submit">Buscar</Button>
 
