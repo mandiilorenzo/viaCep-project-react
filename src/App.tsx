@@ -31,16 +31,16 @@ function App() {
     const response = await getCep(data.cep)
     console.log("Dados recebidos:", response)
 
-    if (response.erro) {
+    if (response.erro && response.length !== 8) {
       alert("CEP não encontrado")
       return
+    } else{
+      document.getElementById("rua")!.setAttribute("value".trim(), response.logradouro)
+      document.getElementById("bairro")!.setAttribute("value".trim(), response.bairro)
+      document.getElementById("cidade")!.setAttribute("value".trim(), response.localidade)
+      document.getElementById("estado")!.setAttribute("value".trim(), response.uf)
+      document.getElementById("ibge")!.setAttribute("value".trim(), response.ibge)
     }
-
-    document.getElementById("rua")!.setAttribute("value", response.logradouro)
-    document.getElementById("bairro")!.setAttribute("value", response.bairro)
-    document.getElementById("cidade")!.setAttribute("value", response.localidade)
-    document.getElementById("estado")!.setAttribute("value", response.uf)
-    document.getElementById("ibge")!.setAttribute("value", response.ibge)
   }
 
 
@@ -58,7 +58,7 @@ function App() {
           id="cep"
           placeholder="Digite o cep"
           {...register("cep", {
-            required: "O CEP é obrigatório", minLength: { value: 8, message: "O CEP deve ter 8 dígitos!" }
+            required: "O CEP é obrigatório", minLength: { value: 8, message: "O CEP deve ter 8 dígitos" }, maxLength: { value: 8, message: "O CEP deve ter 8 dígitos" }
           })}
         />
 
