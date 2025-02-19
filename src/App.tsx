@@ -34,13 +34,21 @@ function App() {
     if (response.erro && response.length !== 8) {
       alert("CEP não encontrado")
       return
-    } else{
-      document.getElementById("rua")!.setAttribute("value".trim(), response.logradouro)
-      document.getElementById("bairro")!.setAttribute("value".trim(), response.bairro)
-      document.getElementById("cidade")!.setAttribute("value".trim(), response.localidade)
-      document.getElementById("estado")!.setAttribute("value".trim(), response.uf)
-      document.getElementById("ibge")!.setAttribute("value".trim(), response.ibge)
     }
+
+    const rua = document.getElementById("rua") as HTMLInputElement
+    const bairro = document.getElementById("bairro") as HTMLInputElement
+    const cidade = document.getElementById("cidade") as HTMLInputElement
+    const estado = document.getElementById("estado") as HTMLInputElement
+    const ibge = document.getElementById("ibge") as HTMLInputElement
+
+    if (rua) rua.value = response.logradouro.trim();
+    if (bairro) bairro.value = response.bairro.trim();
+    if (cidade) cidade.value = response.localidade.trim();
+    if (estado) estado.value = response.uf.trim();
+    if (ibge) ibge.value = response.ibge.trim();
+
+
   }
 
 
