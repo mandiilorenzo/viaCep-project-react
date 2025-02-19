@@ -5,12 +5,17 @@ import './index.css'
 
 type Inputs = {
   cep: string
+  rua: string
+  bairro: string
+  cidade: string
+  estado: string
+  ibge: string
 }
 
 function App() {
   <GlobalStyle />
 
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm<Inputs>()
 
   const getCep = async (cep: string) => {
     try {
@@ -36,18 +41,11 @@ function App() {
       return
     }
 
-    const rua = document.getElementById("rua") as HTMLInputElement
-    const bairro = document.getElementById("bairro") as HTMLInputElement
-    const cidade = document.getElementById("cidade") as HTMLInputElement
-    const estado = document.getElementById("estado") as HTMLInputElement
-    const ibge = document.getElementById("ibge") as HTMLInputElement
-
-    if (rua) rua.value = response.logradouro.trim();
-    if (bairro) bairro.value = response.bairro.trim();
-    if (cidade) cidade.value = response.localidade.trim();
-    if (estado) estado.value = response.uf.trim();
-    if (ibge) ibge.value = response.ibge.trim();
-
+    setValue("rua", response.logradouro.trim())
+    setValue("bairro", response.bairro.trim())
+    setValue("cidade", response.localidade.trim())
+    setValue("estado", response.uf.trim())
+    setValue("ibge", response.ibge.trim())
 
   }
 
@@ -79,41 +77,51 @@ function App() {
         <Label htmlFor="rua">Rua:</Label>
         <Input
           type="text"
-          name="rua"
           id="rua"
           disabled
+          {
+          ...register("rua")
+          }
         />
 
         <Label htmlFor="bairro">Bairro:</Label>
         <Input
           type="text"
-          name="bairro"
           id="bairro"
           disabled
+          {
+          ...register("bairro")
+          }
         />
 
         <Label htmlFor="cidade">Cidade:</Label>
         <Input
           type="text"
-          name="cidade"
           id="cidade"
           disabled
+          {
+          ...register("cidade")
+          }
         />
 
         <Label htmlFor="estado">Estado:</Label>
         <Input
           type="text"
-          name="estado"
           id="estado"
           disabled
+          {
+          ...register("estado")
+          }
         />
 
         <Label htmlFor="ibge">IBGE:</Label>
         <Input
           type="text"
-          name="ibge"
           id="ibge"
           disabled
+          {
+          ...register("ibge")
+          }
         />
       </Form>
     </Main>
