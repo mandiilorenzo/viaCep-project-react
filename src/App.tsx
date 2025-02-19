@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form"
 import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
 import './index.css'
 
 type Inputs = {
@@ -13,8 +12,6 @@ type Inputs = {
 }
 
 function App() {
-  <GlobalStyle />
-
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<Inputs>()
 
   const getCep = async (cep: string) => {
@@ -127,12 +124,6 @@ function App() {
     </Main>
   )
 }
-
-const GlobalStyle = createGlobalStyle`
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-`
 
 const Main = styled.main`
     background-color: green;
