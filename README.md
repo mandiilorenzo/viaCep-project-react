@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# Projeto ViaCep
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto tem como objetivo o aprimoramento prático com React + Vite, por meio da construção de uma aplicação que realiza a busca de informações com base no cep informado pelo usuário.
 
-Currently, two official plugins are available:
+A aplicação utiliza uma API externa para consultar os dados e apresenta os resultados de forma dinâmica, além de garantir responsividade em dispositivos de telas menores. Como também, utiliza o Typescript para definição dos tipos personalizados.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Índice
 
-## Expanding the ESLint configuration
+- [Visão geral](#visãogeral)
+  - [O projeto](#o-projeto)
+  - [Link](#link)
+- [Meu processo](#meu-processo)
+  - [Tecnologias utilizadas](#built-with)
+  - [Aprendizados](#aprendizados)
+   - [Funcionalidades](#funcionalidades)
+- [Instalação e execução do projeto](#instalação-e-execução-do-projeto)
+- [Autora](#autora)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Visão geral
 
-- Configure the top-level `parserOptions` property like this:
+### O projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<img src='./src/assets/images/viacep-project.gif'>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Link
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Meu processo
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Tecnologias utilizadas
+
+ - React
+ - Vite
+ - Typescript
+ - Styled Components
+ - React Hook Form
+ - API ViaCEP
+
+ ### Aprendizados
+
+ Com este projeto, pude consolidar meus conhecimentos de React, configurando um ambiente moderno e dinâmico.
+
+ Pude trazer um visual agradável ao usuário, por meio da estilização com Style components.
+
+ Obtive melhora no desempenho com o uso de API's externas, na busca de dados reais, utilizando o fetch.
+
+ Aprendi a lidar com possíveis erros de um formulário e tratá-los de forma dinâmica, com o React Hook form.
+
+ Consegui trabalhar com o Typescript, facilitando a organização e legibilidade do código.
+
+ Além de aprimorar a minha prática de trabalhar em projetos que trazem responsividade em telas menores, melhorando a experiência do usuário.
+
+### Funcionalidades
+
+ - Campo de input para inserir o cep
+ - Validação do campo com React Hook Form
+ - Requisição à API ViaCEP para obter os dados
+ - Exibição dos dados de forma dinâmica
+ - Layout responsivo adaptado para diferentes telas
+
+ ### Instalação e execução do projeto
+
+ 1. Clone o projeto: git clone https://github.com/seu-usuario/viaCep-project-react
+
+ 2. Instale as dependências com o comando: npm install ou npm i
+
+ 3. Inicie o servidor de desenvolvimento: npm run dev
+
+ ## Autora
+
+ https://github.com/mandiilorenzo
+
+
