@@ -24,6 +24,8 @@ A aplicação utiliza uma API externa para consultar os dados e apresenta os res
 
 ### Link
 
+ - URL do site ativo: https://via-cep-project-eso5fy87w-mandilorenzo.vercel.app/
+
 ## Meu processo
 
 ### Tecnologias utilizadas
